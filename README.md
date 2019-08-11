@@ -1,10 +1,10 @@
-# Copy Move Forgery Detection
+﻿# Copy Move Forgery Detection
 Detection of copy-move forgery is performed on MICC-F220[1] dataset. It can also be used for creating segmented mask.
 
 The implemented approach uses SIFT feature extraction method for matching features 
 which are copied within an image. In this method, feature matching is performed through KNN approach.
 
-Initially, the raw image is segmented into 32 X 32 equally sized blocks for extarcting features.
+Initially, the raw image is segmented into 256 X 256 equally sized blocks for extarcting features.
 Then feature matching is performed across each blocks to determine the copied region. Finally, 
 at the matched feature location a matrix of 30 X 30 is created to detect the whole copied region.
 
