@@ -16,7 +16,7 @@ To test an image, simply move the image file to the test_images directory
 1. Open a Terminal/Shell
 2. ``cd forgery_detect``
 3. Run the command - ``python main.py``
-4. The output images will be generated in the output_images directory
+4. The output images will be generated in the ``output_images`` directory
 
 To install all the requirements:
 
