@@ -6,6 +6,7 @@ from tqdm import tqdm
 import time
 import Container
 import Blocks
+import imageio
 
 
 class image_object(object):
@@ -70,7 +71,7 @@ class image_object(object):
         print ("Step 2 of 4: Computing feature vectors")
 
         for i in tqdm(range(0, self.imageWidth, self.blockDimension)):
-            print (i)
+            # print (i)
             for j in range(0, self.imageHeight, self.blockDimension):
                 imageBlockRGB = self.imageData.crop((i, j, i + self.blockDimension, j + self.blockDimension))
                 imageBlockGrayscale = self.imageGrayscale.crop((i, j, i + self.blockDimension, j + self.blockDimension))
@@ -92,8 +93,8 @@ class image_object(object):
         print ("Step 3 of 4: Comparing feature vectors")
 
         featureContainerKeypointsLength = self.featuresContainerKeypoints.getLength()
-        print (self.featuresContainerKeypoints.getLength())
-        print (self.featuresContainerDescriptors.getLength())
+        # print (self.featuresContainerKeypoints.getLength())
+        # print (self.featuresContainerDescriptors.getLength())
         for i in tqdm(range(featureContainerKeypointsLength)):
             self.des1 = self.featuresContainerDescriptors.getValues(i)
             if self.des1 is not None and len(self.des1) >= 2:
@@ -103,7 +104,7 @@ class image_object(object):
                         self.matches = self.flann.knnMatch(np.asarray(self.des1,np.float32),np.asarray(self.des2,np.float32),k=2)
                         if self.matches is not None:
                             good = []
-                            for k, pair in enumerate(self.matches):
+                            for pair in self.matches:
                                 try:
                                     m, n = pair
                                     if m.distance < 0.7*n.distance:
@@ -139,6 +140,6 @@ class image_object(object):
 
         groundtruthImage = Image.fromarray(imagesegment, 'L')
         timeStamp = time.strftime("%Y%m%d_%H%M%S")
-        scipy.misc.imsave(self.imageOutputDirectory + timeStamp + self.imagePath, groundtruthImage)
+        imageio.imwrite(self.imageOutputDirectory + timeStamp + self.imagePath, groundtruthImage)
 
         return imagesegment

@@ -1,0 +1,7 @@
+Pillow
+tqdm
+numpy
+pandas
+scipy
+imageio
+opencv-contrib-python
