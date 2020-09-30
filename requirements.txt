@@ -1,6 +1,7 @@
 Pillow
-opencv-python
 tqdm
 numpy
 pandas
 scipy
+imageio
+opencv-contrib-python
