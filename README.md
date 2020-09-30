@@ -36,7 +36,6 @@ Output Image
 
 ![](output_images/20200930_112235DSC_0535tamp131.jpg)
 
-
 The following papers provide references to the ideas behind the above proposal:
 
 [1] I. Amerini, L. Ballan, R. Caldelli, A. Del Bimbo, G. Serra. “A SIFT-based forensic method for copy-move attack detection and transformation recovery”, IEEE Transactions on Information Forensics and Security, vol. 6, issue 3, pp. 1099-1110, 2011.
